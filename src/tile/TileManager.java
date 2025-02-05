@@ -25,8 +25,8 @@ public class TileManager {
 
     private void getTileImage() {
         try{
-           tile[0]=new Tile();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tile/base.jpg"));
+           tile[3]=new Tile();
+            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tile/base.jpg"));
 
             tile[1]=new Tile();
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tile/tree.jpg"));
@@ -34,9 +34,10 @@ public class TileManager {
 
             tile[2]=new Tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tile/door.png"));
+            tile[2].collision=true;
 
-            tile[3]=new Tile();
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tile/grasss.jpg"));
+            tile[0]=new Tile();
+            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tile/grasss.jpg"));
 
             tile[4]=new Tile();
             tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tile/win.png"));
@@ -44,10 +45,13 @@ public class TileManager {
             //start of house
             tile[5]=new Tile();
             tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tile/1.png"));
+            tile[5].collision=true;
             tile[6]=new Tile();
             tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tile/2.png"));
+            tile[6].collision=true;
             tile[7]=new Tile();
             tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tile/3.png"));
+
             tile[8]=new Tile();
             tile[8].image = ImageIO.read(getClass().getResourceAsStream("/tile/11.png"));
             tile[9]=new Tile();
@@ -128,7 +132,46 @@ public class TileManager {
             tile[46].image = ImageIO.read(getClass().getResourceAsStream("/tile/132.png"));
             tile[47]=new Tile();
             tile[47].image = ImageIO.read(getClass().getResourceAsStream("/tile/133.png"));
-
+            tile[8].collision = true;
+            tile[9].collision = true;
+            tile[10].collision = true;
+            tile[11].collision = true;
+            tile[12].collision = true;
+            tile[13].collision = true;
+            tile[14].collision = true;
+            tile[15].collision = true;
+            tile[16].collision = true;
+            tile[17].collision = true;
+            tile[18].collision = true;
+            tile[19].collision = true;
+            tile[20].collision = true;
+            tile[21].collision = true;
+            tile[22].collision = true;
+            tile[23].collision = true;
+            tile[24].collision = true;
+            tile[25].collision = true;
+            tile[26].collision = true;
+            tile[27].collision = true;
+            tile[28].collision = true;
+            tile[29].collision = true;
+            tile[30].collision = true;
+            tile[31].collision = true;
+            tile[32].collision = true;
+            tile[33].collision = true;
+            tile[34].collision = true;
+            tile[35].collision = true;
+            tile[36].collision = true;
+            tile[37].collision = true;
+            tile[38].collision = true;
+            tile[39].collision = true;
+            tile[40].collision = true;
+            tile[41].collision = true;
+            tile[42].collision = true;
+            tile[43].collision = true;
+            tile[44].collision = true;
+            tile[45].collision = true;
+            tile[46].collision = true;
+            tile[47].collision = true;
 
             //End of House
 
@@ -178,6 +221,7 @@ public class TileManager {
 
             g2.drawImage(tile[tileNum].image, screenx, screeny, gp.tileSize, gp.tileSize, null);
             worldCol++;
+
 
 
         if (worldCol == gp.maxWorldCol) {

@@ -9,7 +9,7 @@ import java.awt.Color;
 
 
 public class GamePanel extends JPanel implements Runnable {
-  public  final int originalTileSize=16;
+    public  final int originalTileSize=16;
     final int scale=3;
     public final int tileSize=originalTileSize*scale;
     public final int maxScreenRow=12;
@@ -26,7 +26,7 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileM=new TileManager(this);
     KeyHandler keyH =new KeyHandler();
     Thread gameThread;
-   public CollisionChecker cChecker=new CollisionChecker(this);
+    public CollisionChecker cChecker=new CollisionChecker(this);
     public Player player =new Player(this,keyH);
 
     public GamePanel()
@@ -49,28 +49,33 @@ public class GamePanel extends JPanel implements Runnable {
         double nextDrawTime=System.nanoTime()+drawInterval;
         while(gameThread!=null)
         {
-update();
-repaint();
-try {
-    double remainingTime = nextDrawTime - System.nanoTime();
-    remainingTime=remainingTime/1000000;
-    if(remainingTime<0){
-        remainingTime=0;
-    }
-    Thread.sleep((long) remainingTime);
-    nextDrawTime+=drawInterval;
-  long currentTime = System.nanoTime();
-   // System.out.println("Current Time" + currentTime);
-}catch(InterruptedException e){
-    e.printStackTrace();
-}
+            update();
+            repaint();
+            try {
+                double remainingTime = nextDrawTime - System.nanoTime();
+                remainingTime=remainingTime/1000000;
+                if(remainingTime<0){
+                    remainingTime=0;
+                }
+                Thread.sleep((long) remainingTime);
+                nextDrawTime+=drawInterval;
+                long currentTime = System.nanoTime();
+                // System.out.println("Current Time" + currentTime);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
 
         }
     }
 
-    public void update()
+   public void update()
     {
-       player.update();
+        try {
+            player.update();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
 
 
     }
